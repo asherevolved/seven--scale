@@ -40,7 +40,7 @@ const Navigation = () => {
           >
             <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center glow-primary overflow-hidden">
               <img 
-                src="/528334144_17859556563461698_4631769525587610485_n-removebg-preview (1).png" 
+                src="/pixelcut-export.png" 
                 alt="Seven Scale Logo" 
                 className="w-full h-full object-contain"
               />
