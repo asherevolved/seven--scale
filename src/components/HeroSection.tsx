@@ -55,7 +55,7 @@ const HeroSection = () => {
             <div className="w-28 h-28 mx-auto bg-gradient-to-br from-primary to-primary-glow rounded-3xl flex items-center justify-center text-4xl font-bold glow-primary mb-8">
               SS
             </div>
-            <h1 className="font-heading font-semibold text-6xl md:text-7xl lg:text-8xl leading-tight">
+            <h1 className="font-heading font-semibold text-6xl md:text-7xl lg:text-8xl leading-tight mt-8">
               Seven Scale
             </h1>
           </motion.div>
