@@ -29,8 +29,12 @@ const Footer = () => {
             viewport={{ once: true }}
           >
             <div className="flex items-center space-x-3 mb-6">
-              <div className="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-xl flex items-center justify-center glow-primary">
-                <span className="text-white font-bold text-xl">SS</span>
+              <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center glow-primary overflow-hidden">
+                <img 
+                  src="/528334144_17859556563461698_4631769525587610485_n-removebg-preview (1).png" 
+                  alt="Seven Scale Logo" 
+                  className="w-full h-full object-contain"
+                />
               </div>
               <span className="font-heading font-bold text-2xl">Seven Scale</span>
             </div>

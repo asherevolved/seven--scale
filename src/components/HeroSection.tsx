@@ -54,9 +54,9 @@ const HeroSection = () => {
           >
             <div className="w-28 h-28 mx-auto rounded-3xl overflow-hidden glow-primary mb-8">
               <img 
-                src="/528334144_17859556563461698_4631769525587610485_n.jpg" 
+                src="/528334144_17859556563461698_4631769525587610485_n-removebg-preview (1).png" 
                 alt="Seven Scale Logo" 
-                className="w-full h-full object-cover"
+                className="w-full h-full object-contain"
               />
             </div>
             <h1 className="font-heading font-semibold text-6xl md:text-7xl lg:text-8xl leading-tight mt-8">
