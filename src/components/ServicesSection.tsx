@@ -10,42 +10,35 @@ const ServicesSection = () => {
       title: "Business Package",
       description: "Complete web presence with performance tracking",
       features: [
-        "Website (up to 6 pages)",
-        "Responsive design",
-        "Analytics setup",
-        "Basic SEO optimization",
-        "Campaign builds",
-        "Monthly audits"
+        "Website (up to 6 pages), responsive design & analytics",
+        "On-page + technical SEO, keyword plan (20–30)",
+        "2 campaign builds per month (landing page + ads)",
+        "Monthly growth audit & roadmap review"
       ],
-      price: "Starting at $2,999",
       highlight: false
     },
     {
       title: "Marketing Package",
       description: "Comprehensive marketing strategy and execution",
       features: [
-        "SEO strategy & implementation",
-        "Weekly blog posts",
-        "Content calendar",
-        "Performance campaigns",
-        "Bi-weekly strategy calls",
-        "Competitor analysis"
+        "SEO strategy + keyword plan",
+        "6 SEO-optimized blog posts/month",
+        "Content calendar planning",
+        "2 performance campaigns/month",
+        "Analytics dashboard + monthly strategy call"
       ],
-      price: "Starting at $1,999/mo",
       highlight: true
     },
     {
       title: "Social Media Package",
       description: "Complete social media management and growth",
       features: [
-        "Management for 3 platforms",
-        "Daily posts & stories",
-        "Reels & video content",
-        "Custom captions",
-        "Monthly performance reports",
-        "Community management"
+        "Instagram page management",
+        "20 posts/month",
+        "8 reels/short videos/month",
+        "Captions + scheduling",
+        "Monthly social report"
       ],
-      price: "Starting at $899/mo",
       highlight: false
     }
   ];
@@ -102,9 +95,6 @@ const ServicesSection = () => {
                     <CardDescription className="text-text-dim text-lg">
                       {pkg.description}
                     </CardDescription>
-                    <div className="text-4xl md:text-5xl font-bold text-gradient mt-4">
-                      {pkg.price}
-                    </div>
                   </CardHeader>
                   <CardContent className="pt-0">
                     <ul className="space-y-4 mb-8">
@@ -132,7 +122,7 @@ const ServicesSection = () => {
                             : "bg-secondary hover:bg-secondary/90"
                         }`}
                       >
-                        Get Started
+                        Contact us for pricing
                       </Button>
                     </motion.div>
                   </CardContent>
