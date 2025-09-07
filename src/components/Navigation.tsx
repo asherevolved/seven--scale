@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 
 const Navigation = () => {
@@ -6,7 +7,7 @@ const Navigation = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      setIsScrolled(window.scrollY > 60);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -20,57 +21,69 @@ const Navigation = () => {
   };
 
   return (
-    <nav
+    <motion.nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "glass-card border-b border-border/20"
-          : "bg-transparent"
+          ? "glass-card py-2"
+          : "bg-transparent py-4"
       }`}
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
     >
-      <div className="container mx-auto px-6 py-4">
+      <div className="container mx-auto px-6">
         <div className="flex items-center justify-between">
-          <div className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-gradient-to-br from-primary to-primary-glow rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-sm">SS</span>
+          <motion.div 
+            className="flex items-center space-x-3"
+            whileHover={{ scale: 1.02 }}
+            transition={{ type: "spring", stiffness: 400 }}
+          >
+            <div className="w-10 h-10 bg-gradient-to-br from-primary to-accent rounded-xl flex items-center justify-center glow-primary">
+              <span className="text-white font-bold text-lg">SS</span>
             </div>
-            <span className="font-heading font-bold text-xl">Seven Scale</span>
-          </div>
+            <span className="font-heading font-bold text-2xl">Seven Scale</span>
+          </motion.div>
 
           <div className="hidden md:flex items-center space-x-8">
-            <button
-              onClick={() => scrollToSection("hero")}
-              className="text-foreground/80 hover:text-foreground transition-colors"
+            {["Home", "Services", "About", "Contact"].map((item, index) => (
+              <motion.button
+                key={item}
+                onClick={() => scrollToSection(item.toLowerCase() === "home" ? "hero" : item.toLowerCase())}
+                className="relative text-foreground/80 hover:text-foreground transition-colors py-2 focus-ring"
+                whileHover="hover"
+                initial="initial"
+                variants={{
+                  initial: { scale: 1 },
+                  hover: { scale: 1.05 }
+                }}
+              >
+                {item}
+                <motion.div
+                  className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-primary to-accent"
+                  variants={{
+                    initial: { scaleX: 0 },
+                    hover: { scaleX: 1 }
+                  }}
+                  transition={{ duration: 0.2 }}
+                />
+              </motion.button>
+            ))}
+            
+            <motion.div
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
             >
-              Home
-            </button>
-            <button
-              onClick={() => scrollToSection("services")}
-              className="text-foreground/80 hover:text-foreground transition-colors"
-            >
-              Services
-            </button>
-            <button
-              onClick={() => scrollToSection("about")}
-              className="text-foreground/80 hover:text-foreground transition-colors"
-            >
-              About
-            </button>
-            <button
-              onClick={() => scrollToSection("contact")}
-              className="text-foreground/80 hover:text-foreground transition-colors"
-            >
-              Contact
-            </button>
-            <Button
-              onClick={() => scrollToSection("contact")}
-              className="bg-primary hover:bg-primary/90 glow-primary"
-            >
-              Get Started
-            </Button>
+              <Button
+                onClick={() => scrollToSection("contact")}
+                className="btn-primary px-6 py-2 focus-ring"
+              >
+                Get Started
+              </Button>
+            </motion.div>
           </div>
         </div>
       </div>
-    </nav>
+    </motion.nav>
   );
 };
 

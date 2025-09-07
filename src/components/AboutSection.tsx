@@ -1,3 +1,6 @@
+import { motion } from "framer-motion";
+import MotionWrapper from "@/components/motion/MotionWrapper";
+
 const AboutSection = () => {
   const process = [
     {
@@ -22,69 +25,96 @@ const AboutSection = () => {
     }
   ];
 
+  const stats = [
+    { value: "250+", label: "Projects Delivered" },
+    { value: "98%", label: "Client Satisfaction" },
+    { value: "5x", label: "Average ROI" }
+  ];
+
   return (
-    <section id="about" className="py-20 bg-secondary/30">
+    <section id="about" className="py-24 bg-secondary/30 relative">
+      {/* Gradient wipe transition */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent to-transparent opacity-50" />
+      
       <div className="container mx-auto px-6">
-        <div className="text-center mb-16 animate-fade-in">
-          <h2 className="font-heading font-bold text-4xl md:text-6xl mb-6">
+        <MotionWrapper className="text-center mb-20">
+          <h2 className="font-heading font-bold text-5xl md:text-7xl mb-8 leading-tight">
             We build <span className="text-gradient">pipelines</span>, not just pages.
           </h2>
-          <p className="text-xl text-foreground/80 max-w-3xl mx-auto mb-8">
+          <p className="text-xl md:text-2xl text-text-dim max-w-4xl mx-auto mb-12 leading-relaxed">
             We're a performance-focused agency that delivers design, marketing, and campaigns 
             engineered for business growth. Our data-driven approach ensures every decision 
             moves the needle on your bottom line.
           </p>
-        </div>
+        </MotionWrapper>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {/* 3D Timeline Process */}
+        <div className="grid lg:grid-cols-2 xl:grid-cols-4 gap-8 mb-20">
           {process.map((item, index) => (
-            <div
+            <MotionWrapper
               key={index}
-              className="text-center animate-slide-in"
-              style={{ animationDelay: `${index * 0.2}s` }}
+              delay={index * 0.1}
+              className="text-center"
             >
-              <div className="relative mb-6">
-                <div className="w-16 h-16 mx-auto bg-gradient-to-br from-primary to-primary-glow rounded-full flex items-center justify-center text-white font-bold text-lg glow-primary">
+              <motion.div
+                className="relative mb-8"
+                whileHover={{ scale: 1.05, z: 10 }}
+                transition={{ type: "spring", stiffness: 300 }}
+              >
+                <motion.div 
+                  className="w-20 h-20 mx-auto bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center text-white font-bold text-xl glow-primary"
+                  whileHover={{ 
+                    rotateY: 10,
+                    rotateX: 5,
+                    boxShadow: "var(--glow-accent)"
+                  }}
+                  style={{ transformStyle: "preserve-3d" }}
+                >
                   {item.step}
-                </div>
+                </motion.div>
                 {index < process.length - 1 && (
-                  <div className="hidden lg:block absolute top-8 left-1/2 w-full h-0.5 bg-gradient-to-r from-primary/50 to-transparent" />
+                  <div className="hidden xl:block absolute top-10 left-1/2 w-full h-0.5 bg-gradient-to-r from-primary/50 to-transparent z-[-1]" />
                 )}
-              </div>
-              <h3 className="font-heading font-semibold text-xl mb-3">
+              </motion.div>
+              <h3 className="font-heading font-semibold text-2xl md:text-3xl mb-4">
                 {item.title}
               </h3>
-              <p className="text-foreground/70">
+              <p className="text-text-dim text-lg leading-relaxed">
                 {item.description}
               </p>
-            </div>
+            </MotionWrapper>
           ))}
         </div>
 
-        <div className="mt-16 text-center">
-          <div className="glass-card p-8 rounded-2xl max-w-4xl mx-auto">
-            <h3 className="font-heading font-semibold text-2xl mb-4">
+        <MotionWrapper>
+          <div className="glass-card p-10 md:p-12 rounded-3xl max-w-5xl mx-auto">
+            <h3 className="font-heading font-semibold text-3xl md:text-4xl mb-6 text-center">
               Ready to scale your business?
             </h3>
-            <p className="text-foreground/80 mb-6">
+            <p className="text-text-dim text-xl mb-10 text-center leading-relaxed">
               Join hundreds of businesses that have transformed their growth with Seven Scale.
             </p>
             <div className="grid grid-cols-3 gap-8">
-              <div>
-                <div className="text-3xl font-bold text-gradient">250+</div>
-                <div className="text-sm text-foreground/70">Projects Delivered</div>
-              </div>
-              <div>
-                <div className="text-3xl font-bold text-gradient">98%</div>
-                <div className="text-sm text-foreground/70">Client Satisfaction</div>
-              </div>
-              <div>
-                <div className="text-3xl font-bold text-gradient">5x</div>
-                <div className="text-sm text-foreground/70">Average ROI</div>
-              </div>
+              {stats.map((stat, index) => (
+                <motion.div
+                  key={index}
+                  className="text-center"
+                  initial={{ scale: 0.8, opacity: 0 }}
+                  whileInView={{ scale: 1, opacity: 1 }}
+                  transition={{ delay: index * 0.1, type: "spring" }}
+                  whileHover={{ scale: 1.05 }}
+                >
+                  <div className="text-4xl md:text-5xl font-bold text-gradient mb-2">
+                    {stat.value}
+                  </div>
+                  <div className="text-text-dim font-medium">
+                    {stat.label}
+                  </div>
+                </motion.div>
+              ))}
             </div>
           </div>
-        </div>
+        </MotionWrapper>
       </div>
     </section>
   );
