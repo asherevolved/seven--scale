@@ -69,7 +69,7 @@ const HeroSection = () => {
           
           <motion.p 
             variants={itemVariants}
-            className="text-lg md:text-xl text-muted-foreground mb-16 max-w-3xl mx-auto leading-relaxed"
+            className="text-lg md:text-xl text-muted-foreground mt-8 mb-16 max-w-3xl mx-auto leading-relaxed"
           >
             Web Design, Marketing, SEO, Content Creation, and Social Media Management—engineered to grow your business.
           </motion.p>
