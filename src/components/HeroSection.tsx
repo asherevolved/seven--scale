@@ -1,7 +1,5 @@
-import { Suspense } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import Scene3D from "@/components/3d/Scene3D";
 import { useMotionPreference } from "@/hooks/useMotion";
 
 const HeroSection = () => {
@@ -42,31 +40,56 @@ const HeroSection = () => {
       id="hero"
       className="min-h-screen flex items-center justify-center relative overflow-hidden"
     >
-      {/* 3D Background */}
-      <div className="absolute inset-0 z-0">
-        {!prefersReducedMotion ? (
-          <Suspense fallback={
-            <div className="w-full h-full hero-gradient flex items-center justify-center">
-              <div className="w-32 h-32 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center text-4xl font-bold glow-primary">
-                SS
-              </div>
-            </div>
-          }>
-            <Scene3D enableInteraction className="w-full h-full" />
-          </Suspense>
-        ) : (
-          <div className="w-full h-full hero-gradient flex items-center justify-center">
-            <div className="w-32 h-32 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center text-4xl font-bold glow-primary">
-              SS
-            </div>
-          </div>
-        )}
+      {/* Animated background with CSS gradients instead of 3D */}
+      <div className="absolute inset-0 hero-gradient">
+        <div className="absolute inset-0 opacity-30">
+          {/* Floating hexagon shapes */}
+          {!prefersReducedMotion && (
+            <>
+              {[...Array(6)].map((_, i) => (
+                <motion.div
+                  key={i}
+                  className="absolute w-20 h-20 border-2 border-primary/20"
+                  style={{
+                    left: `${20 + i * 15}%`,
+                    top: `${20 + (i % 2) * 30}%`,
+                    clipPath: "polygon(30% 0%, 70% 0%, 100% 50%, 70% 100%, 30% 100%, 0% 50%)"
+                  }}
+                  animate={{
+                    y: [-10, 10, -10],
+                    rotate: [0, 10, 0],
+                  }}
+                  transition={{
+                    duration: 4 + i,
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  }}
+                />
+              ))}
+            </>
+          )}
+        </div>
+        
+        {/* Central logo */}
+        <div className="absolute inset-0 flex items-center justify-center">
+          <motion.div
+            className="w-32 h-32 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center text-5xl font-bold glow-primary"
+            animate={!prefersReducedMotion ? {
+              scale: [1, 1.05, 1],
+              rotate: [0, 5, 0]
+            } : {}}
+            transition={{
+              duration: 3,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+          >
+            SS
+          </motion.div>
+        </div>
       </div>
       
-      {/* Hero gradient overlay */}
-      <div className="absolute inset-0 hero-gradient opacity-80 z-10" />
-      
-      <div className="container mx-auto px-6 text-center relative z-20">
+      <div className="container mx-auto px-6 text-center relative z-30">
         <motion.div
           variants={containerVariants}
           initial="hidden"
