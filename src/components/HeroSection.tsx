@@ -38,84 +38,45 @@ const HeroSection = () => {
   return (
     <section
       id="hero"
-      className="min-h-screen flex items-center justify-center relative overflow-hidden"
+      className="min-h-screen flex items-center justify-center relative overflow-hidden hero-gradient"
     >
-      {/* Animated background with CSS gradients instead of 3D */}
-      <div className="absolute inset-0 hero-gradient">
-        <div className="absolute inset-0 opacity-30">
-          {/* Floating hexagon shapes */}
-          {!prefersReducedMotion && (
-            <>
-              {[...Array(6)].map((_, i) => (
-                <motion.div
-                  key={i}
-                  className="absolute w-20 h-20 border-2 border-primary/20"
-                  style={{
-                    left: `${20 + i * 15}%`,
-                    top: `${20 + (i % 2) * 30}%`,
-                    clipPath: "polygon(30% 0%, 70% 0%, 100% 50%, 70% 100%, 30% 100%, 0% 50%)"
-                  }}
-                  animate={{
-                    y: [-10, 10, -10],
-                    rotate: [0, 10, 0],
-                  }}
-                  transition={{
-                    duration: 4 + i,
-                    repeat: Infinity,
-                    ease: "easeInOut"
-                  }}
-                />
-              ))}
-            </>
-          )}
-        </div>
-        
-        {/* Central logo */}
-        <div className="absolute inset-0 flex items-center justify-center">
-          <motion.div
-            className="w-32 h-32 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center text-5xl font-bold glow-primary"
-            animate={!prefersReducedMotion ? {
-              scale: [1, 1.05, 1],
-              rotate: [0, 5, 0]
-            } : {}}
-            transition={{
-              duration: 3,
-              repeat: Infinity,
-              ease: "easeInOut"
-            }}
-          >
-            SS
-          </motion.div>
-        </div>
-      </div>
-      
-      <div className="container mx-auto px-6 text-center relative z-30">
+      <div className="container mx-auto px-6 text-center relative z-20">
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="max-w-5xl mx-auto"
+          className="max-w-6xl mx-auto"
         >
-          <motion.h1 
+          {/* Logo space */}
+          <motion.div 
             variants={itemVariants}
-            className="font-heading font-bold text-6xl md:text-8xl lg:text-9xl mb-8 leading-tight"
+            className="mb-16"
           >
-            Scale Faster.{" "}
-            <span className="text-gradient">Smarter.</span>
-            <br />
-            With Seven Scale.
-          </motion.h1>
+            <div className="w-28 h-28 mx-auto bg-gradient-to-br from-primary to-primary-glow rounded-3xl flex items-center justify-center text-4xl font-bold glow-primary mb-8">
+              SS
+            </div>
+            <h1 className="font-heading font-semibold text-6xl md:text-7xl lg:text-8xl leading-tight">
+              Seven Scale
+            </h1>
+          </motion.div>
+          
+          <motion.h2 
+            variants={itemVariants}
+            className="font-heading font-semibold text-3xl md:text-5xl lg:text-6xl mb-8 leading-tight"
+          >
+            Scale Faster. <span className="text-gradient">Smarter.</span>
+          </motion.h2>
           
           <motion.p 
             variants={itemVariants}
-            className="text-xl md:text-2xl lg:text-3xl text-text-dim mb-12 max-w-4xl mx-auto leading-relaxed"
+            className="text-lg md:text-xl text-muted-foreground mb-16 max-w-3xl mx-auto leading-relaxed"
           >
             Web Design, Marketing, SEO, Content Creation, and Social Media Management—engineered to grow your business.
           </motion.p>
 
           <motion.div 
             variants={itemVariants}
-            className="flex flex-col sm:flex-row gap-6 justify-center mb-16"
+            className="flex flex-col sm:flex-row gap-6 justify-center mb-20"
           >
             <motion.div
               whileHover={{ scale: 1.02 }}
@@ -124,7 +85,7 @@ const HeroSection = () => {
               <Button
                 size="lg"
                 onClick={() => scrollToSection("contact")}
-                className="btn-primary text-xl px-10 py-6 focus-ring"
+                className="btn-primary text-lg px-8 py-4 focus-ring"
               >
                 Get a Free Strategy Call
               </Button>
@@ -133,7 +94,7 @@ const HeroSection = () => {
             <motion.div
               whileHover={{ 
                 scale: 1.02,
-                backgroundColor: "rgba(255, 255, 255, 0.1)"
+                backgroundColor: "var(--surface-glass-hover)"
               }}
               whileTap={{ scale: 0.98 }}
             >
@@ -141,7 +102,7 @@ const HeroSection = () => {
                 size="lg"
                 variant="outline"
                 onClick={() => scrollToSection("services")}
-                className="text-xl px-10 py-6 border-white/30 text-white hover:bg-white/10 focus-ring"
+                className="text-lg px-8 py-4 border-white/20 text-white hover:bg-white/10 focus-ring"
               >
                 See Our Packages
               </Button>
@@ -150,7 +111,7 @@ const HeroSection = () => {
 
           <motion.div 
             variants={itemVariants}
-            className="grid grid-cols-2 md:grid-cols-5 gap-6 max-w-3xl mx-auto"
+            className="grid grid-cols-2 md:grid-cols-5 gap-4 max-w-3xl mx-auto"
           >
             {[
               { icon: "🌐", label: "Web Design" },
@@ -161,19 +122,15 @@ const HeroSection = () => {
             ].map((item, index) => (
               <motion.div
                 key={index}
-                className="glass-card p-6 rounded-2xl text-center float"
-                style={{ 
-                  animationDelay: `${index * 0.2}s`,
-                  ...(prefersReducedMotion && { animation: 'none' })
-                }}
+                className="glass-card p-4 rounded-3xl text-center"
                 whileHover={{ 
                   scale: 1.05,
                   backgroundColor: "var(--surface-glass-hover)"
                 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
-                <div className="text-3xl mb-3">{item.icon}</div>
-                <p className="text-sm font-medium text-text-dim">{item.label}</p>
+                <div className="text-2xl mb-2">{item.icon}</div>
+                <p className="text-xs font-medium text-muted-foreground">{item.label}</p>
               </motion.div>
             ))}
           </motion.div>
