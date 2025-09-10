@@ -261,7 +261,7 @@ const ContactSection = () => {
                         </div>
                         <div>
                           <p className="font-semibold text-lg">Email</p>
-                          <p className="text-text-dim">hello@sevenscale.com</p>
+                          <p className="text-text-dim">sevenscalecompany@gmail.com</p>
                         </div>
                       </motion.div>
                       <motion.div 
@@ -270,17 +270,14 @@ const ContactSection = () => {
                         transition={{ type: "spring", stiffness: 300 }}
                       >
                         <div className="w-12 h-12 bg-primary/20 rounded-xl flex items-center justify-center">
-                          <span className="text-primary text-xl">💬</span>
+                          <span className="text-primary text-xl">📞</span>
                         </div>
                         <div>
-                          <p className="font-semibold text-lg">WhatsApp</p>
-                          <Button 
-                            variant="link" 
-                            className="p-0 h-auto text-text-dim hover:text-primary text-lg"
-                            onClick={() => window.open("https://wa.me/1234567890", "_blank")}
-                          >
-                            +1 (234) 567-8890
-                          </Button>
+                          <p className="font-semibold text-lg">Phone</p>
+                          <div className="space-y-1">
+                            <p className="text-text-dim">+91 7022619124</p>
+                            <p className="text-text-dim">+91 8123479401</p>
+                          </div>
                         </div>
                       </motion.div>
                     </div>

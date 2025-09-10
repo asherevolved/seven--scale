@@ -104,14 +104,17 @@ const Footer = () => {
                 transition={{ type: "spring", stiffness: 300 }}
               >
                 <p className="font-medium">Email</p>
-                <p>hello@sevenscale.com</p>
+                <p>sevenscalecompany@gmail.com</p>
               </motion.div>
               <motion.div
                 whileHover={{ x: 5 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
                 <p className="font-medium">Phone</p>
-                <p>+1 (234) 567-8890</p>
+                <div className="space-y-1">
+                  <p>+91 7022619124</p>
+                  <p>+91 8123479401</p>
+                </div>
               </motion.div>
               <motion.div
                 whileHover={{ x: 5 }}
