@@ -38,7 +38,7 @@ const HeroSection = () => {
   return (
     <section
       id="hero"
-      className="min-h-screen flex items-center justify-center relative overflow-hidden hero-gradient"
+      className="min-h-screen flex items-start justify-center relative overflow-hidden hero-gradient pt-32"
     >
       <div className="container mx-auto px-6 text-center relative z-20">
         <motion.div
@@ -52,7 +52,7 @@ const HeroSection = () => {
             variants={itemVariants}
             className="mb-16"
           >
-            <div className="w-28 h-28 mx-auto rounded-3xl overflow-hidden glow-primary mb-8">
+            <div className="w-40 h-40 mx-auto rounded-3xl overflow-hidden glow-primary mb-8">
               <img 
                 src="/pixelcut-export.png" 
                 alt="Seven Scale Logo" 
@@ -118,10 +118,10 @@ const HeroSection = () => {
             className="grid grid-cols-2 md:grid-cols-5 gap-4 max-w-3xl mx-auto"
           >
             {[
-              { icon: "🌐", label: "Web Design" },
-              { icon: "📈", label: "SEO" },
-              { icon: "📱", label: "Social Media" },
-              { icon: "✍️", label: "Content" },
+              { icon: "💻", label: "Web Design" },
+              { icon: "🚀", label: "SEO" },
+              { icon: "📲", label: "Social Media" },
+              { icon: "📝", label: "Content" },
               { icon: "📊", label: "Marketing" },
             ].map((item, index) => (
               <motion.div

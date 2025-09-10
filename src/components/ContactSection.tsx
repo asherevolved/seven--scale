@@ -14,7 +14,6 @@ const ContactSection = () => {
     name: "",
     email: "",
     company: "",
-    budget: "",
     services: "",
     message: ""
   });
@@ -53,7 +52,7 @@ const ContactSection = () => {
     });
     
     setTimeout(() => {
-      setFormData({ name: "", email: "", company: "", budget: "", services: "", message: "" });
+      setFormData({ name: "", email: "", company: "", services: "", message: "" });
       setIsSubmitted(false);
     }, 3000);
   };
@@ -155,22 +154,6 @@ const ContactSection = () => {
                             className="bg-input/50 border-border/30 focus:border-primary focus:ring-2 focus:ring-primary/20 text-lg py-3"
                           />
                         </motion.div>
-
-                        <div>
-                          <Label htmlFor="budget" className="text-lg">Budget Range</Label>
-                          <Select onValueChange={(value) => handleInputChange("budget", value)}>
-                            <SelectTrigger className="bg-input/50 border-border/30 focus:border-primary focus:ring-2 focus:ring-primary/20 text-lg py-3">
-                              <SelectValue placeholder="Select budget range" />
-                            </SelectTrigger>
-                            <SelectContent className="glass-card">
-                              <SelectItem value="under-5k">Under $5,000</SelectItem>
-                              <SelectItem value="5k-10k">$5,000 - $10,000</SelectItem>
-                              <SelectItem value="10k-25k">$10,000 - $25,000</SelectItem>
-                              <SelectItem value="25k-50k">$25,000 - $50,000</SelectItem>
-                              <SelectItem value="50k-plus">$50,000+</SelectItem>
-                            </SelectContent>
-                          </Select>
-                        </div>
 
                         <div>
                           <Label htmlFor="services" className="text-lg">Services Needed</Label>

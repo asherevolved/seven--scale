@@ -5,6 +5,13 @@ import TiltCard from "@/components/motion/TiltCard";
 import MotionWrapper from "@/components/motion/MotionWrapper";
 
 const ServicesSection = () => {
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   const packages = [
     {
       title: "Business Package",
@@ -116,6 +123,7 @@ const ServicesSection = () => {
                       whileTap={{ scale: 0.98 }}
                     >
                       <Button 
+                        onClick={() => scrollToSection("contact")}
                         className={`w-full py-3 text-lg focus-ring ${
                           pkg.highlight 
                             ? "btn-primary" 

@@ -38,7 +38,7 @@ const Navigation = () => {
             whileHover={{ scale: 1.02 }}
             transition={{ type: "spring", stiffness: 400 }}
           >
-            <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center glow-primary overflow-hidden">
+            <div className="w-10 h-10 rounded-xl flex items-center justify-center glow-primary overflow-hidden backdrop-blur-sm border border-white/10">
               <img 
                 src="/pixelcut-export.png" 
                 alt="Seven Scale Logo" 

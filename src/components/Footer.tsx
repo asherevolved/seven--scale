@@ -8,13 +8,6 @@ const Footer = () => {
     }
   };
 
-  const socialLinks = [
-    { icon: "📘", label: "Facebook", href: "#" },
-    { icon: "🐦", label: "Twitter", href: "#" },
-    { icon: "📷", label: "Instagram", href: "#" },
-    { icon: "💼", label: "LinkedIn", href: "#" }
-  ];
-
   return (
     <footer className="bg-secondary/50 border-t border-border/20 py-20 relative">
       {/* Gradient wipe transition */}
@@ -29,7 +22,7 @@ const Footer = () => {
             viewport={{ once: true }}
           >
             <div className="flex items-center space-x-3 mb-6">
-              <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center glow-primary overflow-hidden">
+              <div className="w-12 h-12 rounded-xl flex items-center justify-center glow-primary overflow-hidden backdrop-blur-sm border border-white/10">
                 <img 
                   src="/pixelcut-export.png" 
                   alt="Seven Scale Logo" 
@@ -41,20 +34,7 @@ const Footer = () => {
             <p className="text-text-dim mb-6 text-lg leading-relaxed">
               Scale Faster. Smarter. With Seven Scale.
             </p>
-            <div className="flex space-x-4">
-              {socialLinks.map((social, index) => (
-                <motion.a
-                  key={index}
-                  href={social.href}
-                  className="w-12 h-12 bg-primary/20 rounded-xl flex items-center justify-center hover:bg-primary/30 transition-colors"
-                  whileHover={{ scale: 1.1, y: -2 }}
-                  whileTap={{ scale: 0.95 }}
-                  aria-label={social.label}
-                >
-                  <span className="text-primary text-xl">{social.icon}</span>
-                </motion.a>
-              ))}
-            </div>
+
           </motion.div>
 
           <motion.div
