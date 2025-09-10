@@ -14,6 +14,11 @@ const queryClient = new QueryClient();
 const App = () => {
   const [isLoading, setIsLoading] = useState(true);
 
+  useEffect(() => {
+    // Reset loading state on page refresh
+    setIsLoading(true);
+  }, []);
+
   const handleLoadingComplete = () => {
     setIsLoading(false);
   };
