@@ -38,8 +38,23 @@ const HeroSection = () => {
   return (
     <section
       id="hero"
-      className="min-h-screen flex items-start justify-center relative overflow-hidden hero-gradient pt-32"
+      className="min-h-screen flex items-start justify-center relative overflow-hidden pt-32"
     >
+      {/* Video Background */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover z-0"
+      >
+        <source src="/Hero Section Background.mp4" type="video/mp4" />
+        {/* Fallback gradient background if video fails to load */}
+        <div className="absolute inset-0 hero-gradient" />
+      </video>
+      
+      {/* Dark overlay for better text readability */}
+      <div className="absolute inset-0 bg-black/30 z-10" />
       <div className="container mx-auto px-6 text-center relative z-20">
         <motion.div
           variants={containerVariants}
