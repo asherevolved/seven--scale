@@ -20,18 +20,19 @@ const Footer = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
+            className="flex flex-col items-center md:items-start"
           >
             <div className="flex items-center space-x-3 mb-6">
-              <div className="w-12 h-12 rounded-xl flex items-center justify-center glow-primary overflow-hidden backdrop-blur-sm border border-white/10">
+              <div className="flex items-center justify-center mt-1">
                 <img 
                   src="/pixelcut-export.png" 
                   alt="Seven Scale Logo" 
-                  className="w-full h-full object-contain"
+                  className="w-12 h-12 object-contain"
                 />
               </div>
               <span className="font-heading font-bold text-2xl">Seven Scale</span>
             </div>
-            <p className="text-text-dim mb-6 text-lg leading-relaxed">
+            <p className="text-text-dim mb-6 text-lg leading-relaxed text-center md:text-left">
               Scale Faster. Smarter. With Seven Scale.
             </p>
 

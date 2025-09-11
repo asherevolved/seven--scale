@@ -65,16 +65,14 @@ const HeroSection = () => {
           {/* Logo space */}
           <motion.div 
             variants={itemVariants}
-            className="mb-16"
+            className="mb-16 flex flex-col items-center"
           >
-            <div className="w-40 h-40 mx-auto rounded-3xl overflow-hidden glow-primary mb-8">
-              <img 
-                src="/pixelcut-export.png" 
-                alt="Seven Scale Logo" 
-                className="w-full h-full object-contain"
-              />
-            </div>
-            <h1 className="font-heading font-semibold text-6xl md:text-7xl lg:text-8xl leading-tight mt-8">
+            <img 
+              src="/pixelcut-export.png" 
+              alt="Seven Scale Logo" 
+              className="w-56 h-56 object-contain mx-auto mb-8"
+            />
+            <h1 className="font-heading font-semibold text-6xl md:text-7xl lg:text-8xl leading-tight text-center">
               Seven Scale
             </h1>
           </motion.div>

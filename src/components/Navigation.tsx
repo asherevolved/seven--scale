@@ -38,11 +38,11 @@ const Navigation = () => {
             whileHover={{ scale: 1.02 }}
             transition={{ type: "spring", stiffness: 400 }}
           >
-            <div className="w-10 h-10 rounded-xl flex items-center justify-center glow-primary overflow-hidden backdrop-blur-sm border border-white/10">
+            <div className="flex items-center justify-center mt-1">
               <img 
                 src="/pixelcut-export.png" 
                 alt="Seven Scale Logo" 
-                className="w-full h-full object-contain"
+                className="w-10 h-10 object-contain"
               />
             </div>
             <span className="font-heading font-bold text-2xl">Seven Scale</span>
